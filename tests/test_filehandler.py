@@ -4,7 +4,7 @@ def test_add_vacancy(json_file_handler, vacancy1):
     # Проверяем, что вакансия добавлена
     vacancies = json_file_handler.get_vacancies()
     assert len(vacancies) == 1
-    assert vacancies[0]['id'] == 1
+    assert vacancies[0]["id"] == 1
 
 
 def test_add_duplicate_vacancy(json_file_handler, vacancy1):
@@ -30,7 +30,7 @@ def test_get_vacancies_by_criteria(json_file_handler, vacancy1, vacancy2):
     # Проверяем фильтрацию по критериям
     filtered_vacancies = json_file_handler.get_vacancies(company="Pupa Company")
     assert len(filtered_vacancies) == 1
-    assert filtered_vacancies[0]['id'] == 1
+    assert filtered_vacancies[0]["id"] == 1
 
 
 def test_delete_vacancy(json_file_handler, vacancy1):

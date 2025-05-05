@@ -56,7 +56,7 @@ class JSONFileHandler(FileHandler):
         vacancies = self.get_vacancies()
         if vacancy not in vacancies:
             vacancies.append(vacancy)
-            with open(self._FileHandler__filename, 'w') as f:
+            with open(self._FileHandler__filename, "w") as f:
                 json.dump(vacancies, f, indent=4)
 
     def get_vacancies(self, **criteria: Any) -> List[Dict[str, Any]]:
@@ -64,7 +64,7 @@ class JSONFileHandler(FileHandler):
         if not os.path.exists(self._FileHandler__filename):
             return []
 
-        with open(self._FileHandler__filename, 'r') as f:
+        with open(self._FileHandler__filename, "r") as f:
             vacancies = json.load(f)
 
         if criteria:
@@ -79,7 +79,9 @@ class JSONFileHandler(FileHandler):
     def delete_vacancy(self, vacancy_id: str) -> None:
         """Метод для удаления вакансии по идентификатору."""
         vacancies = self.get_vacancies()
-        vacancies = [vacancy for vacancy in vacancies if vacancy.get('id') != vacancy_id]
+        vacancies = [
+            vacancy for vacancy in vacancies if vacancy.get("id") != vacancy_id
+        ]
 
-        with open(self._FileHandler__filename, 'w') as f:
+        with open(self._FileHandler__filename, "w") as f:
             json.dump(vacancies, f, indent=4)

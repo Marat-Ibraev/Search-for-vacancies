@@ -1,9 +1,12 @@
 from typing import Union, Dict, Any
 
-class Vacancy:
-    __slots__ = ('id', '_name', '_company', '_salary', '_url')
 
-    def __init__(self, id: str, name: str, company: str, salary: Union[int, float], url: str) -> None:
+class Vacancy:
+    __slots__ = ("id", "_name", "_company", "_salary", "_url")
+
+    def __init__(
+        self, id: str, name: str, company: str, salary: Union[int, float], url: str
+    ) -> None:
         """
         Инициализация объекта вакансии.
 
@@ -79,55 +82,55 @@ class Vacancy:
             return "Ссылка не указана"
         return url
 
-    def __lt__(self, other: 'Vacancy') -> bool:
+    def __lt__(self, other: "Vacancy") -> bool:
         """Сравнение по зарплате (меньше)."""
         if not isinstance(other, Vacancy):
             return NotImplemented
         return self.salary < other.salary
 
-    def __le__(self, other: 'Vacancy') -> bool:
+    def __le__(self, other: "Vacancy") -> bool:
         """Сравнение по зарплате (меньше или равно)."""
         if not isinstance(other, Vacancy):
             return NotImplemented
         return self.salary <= other.salary
 
-    def __eq__(self, other: 'Vacancy') -> bool:
-         """Сравнение по зарплате (равно)."""
-         if not isinstance(other, Vacancy):
-             return NotImplemented
-         return self.salary == other.salary
+    def __eq__(self, other: "Vacancy") -> bool:
+        """Сравнение по зарплате (равно)."""
+        if not isinstance(other, Vacancy):
+            return NotImplemented
+        return self.salary == other.salary
 
-    def __ne__(self, other: 'Vacancy') -> bool:
-         """Сравнение по зарплате (не равно)."""
-         if not isinstance(other, Vacancy):
-             return NotImplemented
-         return self.salary != other.salary
+    def __ne__(self, other: "Vacancy") -> bool:
+        """Сравнение по зарплате (не равно)."""
+        if not isinstance(other, Vacancy):
+            return NotImplemented
+        return self.salary != other.salary
 
-    def __gt__(self, other: 'Vacancy') -> bool:
-         """Сравнение по зарплате (больше)."""
-         if not isinstance(other, Vacancy):
-             return NotImplemented
-         return self.salary > other.salary
+    def __gt__(self, other: "Vacancy") -> bool:
+        """Сравнение по зарплате (больше)."""
+        if not isinstance(other, Vacancy):
+            return NotImplemented
+        return self.salary > other.salary
 
-    def __ge__(self, other: 'Vacancy') -> bool:
-         """Сравнение по зарплате (больше или равно)."""
-         if not isinstance(other, Vacancy):
-             return NotImplemented
-         return self.salary >= other.salary
+    def __ge__(self, other: "Vacancy") -> bool:
+        """Сравнение по зарплате (больше или равно)."""
+        if not isinstance(other, Vacancy):
+            return NotImplemented
+        return self.salary >= other.salary
 
     def __repr__(self) -> str:
-         """Строковое представление объекта вакансии."""
-         return f"Vacancy(name='{self.name}', company='{self.company}', salary={self.salary}, url='{self.url}')"
+        """Строковое представление объекта вакансии."""
+        return f"Vacancy(name='{self.name}', company='{self.company}', salary={self.salary}, url='{self.url}')"
 
     def to_dict(self) -> Dict[str, Any]:
-         """Преобразует объект вакансии в словарь.
+        """Преобразует объект вакансии в словарь.
 
-         :return: Словарь с данными о вакансии.
-         """
-         return {
-             'id': self.id,
-             'name': self.name,
-             'company': self.company,
-             'salary': self.salary,
-             'url': self.url
-         }
+        :return: Словарь с данными о вакансии.
+        """
+        return {
+            "id": self.id,
+            "name": self.name,
+            "company": self.company,
+            "salary": self.salary,
+            "url": self.url,
+        }

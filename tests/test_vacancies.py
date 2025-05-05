@@ -1,4 +1,3 @@
-
 def test_valid_vacancy(vacancy5):
     assert vacancy5.name == "Data Analyst"
     assert vacancy5.company == "Tralyalya Incorporated"

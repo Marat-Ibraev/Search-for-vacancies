@@ -17,11 +17,11 @@ def json_file_handler(tmp_path):
 
 def test_add_vacancy(json_file_handler):
     vacancy = {
-        'id': 1,
-        'name': 'Software Engineer',
-        'employer': {'name': 'Company A'},
-        'alternate_url': 'http://example.com/vacancy/1',
-        'salary': {'from': 1000, 'to': 2000}
+        "id": 1,
+        "name": "Software Engineer",
+        "employer": {"name": "Company A"},
+        "alternate_url": "http://example.com/vacancy/1",
+        "salary": {"from": 1000, "to": 2000},
     }
 
     json_file_handler.add_vacancy(vacancy)
@@ -33,11 +33,11 @@ def test_add_vacancy(json_file_handler):
 
 def test_add_duplicate_vacancy(json_file_handler):
     vacancy = {
-        'id': 1,
-        'name': 'Software Engineer',
-        'employer': {'name': 'Company A'},
-        'alternate_url': 'http://example.com/vacancy/1',
-        'salary': {'from': 1000, 'to': 2000}
+        "id": 1,
+        "name": "Software Engineer",
+        "employer": {"name": "Company A"},
+        "alternate_url": "http://example.com/vacancy/1",
+        "salary": {"from": 1000, "to": 2000},
     }
 
     json_file_handler.add_vacancy(vacancy)
@@ -49,24 +49,24 @@ def test_add_duplicate_vacancy(json_file_handler):
 
 def test_get_vacancies_with_criteria(json_file_handler):
     vacancy1 = {
-        'id': 1,
-        'name': 'Software Engineer',
-        'employer': {'name': 'Company A'},
-        'alternate_url': 'http://example.com/vacancy/1',
-        'salary': {'from': 1000, 'to': 2000}
+        "id": 1,
+        "name": "Software Engineer",
+        "employer": {"name": "Company A"},
+        "alternate_url": "http://example.com/vacancy/1",
+        "salary": {"from": 1000, "to": 2000},
     }
     vacancy2 = {
-        'id': 2,
-        'name': 'Data Scientist',
-        'employer': {'name': 'Company B'},
-        'alternate_url': 'http://example.com/vacancy/2',
-        'salary': {'from': 1500, 'to': 2500}
+        "id": 2,
+        "name": "Data Scientist",
+        "employer": {"name": "Company B"},
+        "alternate_url": "http://example.com/vacancy/2",
+        "salary": {"from": 1500, "to": 2500},
     }
 
     json_file_handler.add_vacancy(vacancy1)
     json_file_handler.add_vacancy(vacancy2)
 
-    filtered_vacancies = json_file_handler.get_vacancies(name='Data Scientist')
+    filtered_vacancies = json_file_handler.get_vacancies(name="Data Scientist")
 
     assert len(filtered_vacancies) == 1
     assert filtered_vacancies[0] == vacancy2
@@ -74,11 +74,11 @@ def test_get_vacancies_with_criteria(json_file_handler):
 
 def test_delete_vacancy(json_file_handler):
     vacancy = {
-        'id': 1,
-        'name': 'Software Engineer',
-        'employer': {'name': 'Company A'},
-        'alternate_url': 'http://example.com/vacancy/1',
-        'salary': {'from': 1000, 'to': 2000}
+        "id": 1,
+        "name": "Software Engineer",
+        "employer": {"name": "Company A"},
+        "alternate_url": "http://example.com/vacancy/1",
+        "salary": {"from": 1000, "to": 2000},
     }
 
     json_file_handler.add_vacancy(vacancy)
