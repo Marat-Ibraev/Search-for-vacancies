@@ -1,16 +1,16 @@
 import abc
-
+from typing import List, Dict, Any, Optional
 import requests
 
 
 class JobAPI(abc.ABC):
     @abc.abstractmethod
-    def _connect(self):
+    def _connect(self) -> requests.Response:
         """Метод для подключения к API"""
         pass
 
     @abc.abstractmethod
-    def get_vacancies(self, keyword: str, cantidad: int):
+    def get_vacancies(self, keyword: str, cantidad: int) -> List[Dict[str, Any]]:
         """Метод для получения вакансий по ключевому слову"""
         pass
 
@@ -18,17 +18,17 @@ class JobAPI(abc.ABC):
 class hh_API(JobAPI):
     BASE_URL = "https://api.hh.ru/vacancies"
 
-    def __init__(self):
-        self.__session = None
+    def __init__(self) -> None:
+        self.__session: Optional[requests.Session] = None
 
-    def _connect(self):
+    def _connect(self) -> requests.Response:
         """Метод для подключения к API"""
         self.__session = requests.Session()
         response = self.__session.get(self.BASE_URL)
         response.raise_for_status()
         return response
 
-    def get_vacancies(self, keyword: str, cantidad: int):
+    def get_vacancies(self, keyword: str, cantidad: int) -> List[Dict[str, Any]]:
         """Метод для получения вакансий по ключевому слову"""
         self._connect()
 
